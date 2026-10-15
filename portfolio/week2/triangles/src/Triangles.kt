@@ -13,7 +13,7 @@ fun isValidTriangle(triangle: Triangle): Boolean {
   }
 fun triangleArea(triangle: Triangle): Double {
     val (a, b, c) = triangle
-    val s = (a + b + c) / 2
-    val area1 = s * (s - a) * (s - b) * (s - c)
-    return sqrt(area1)
+    val s = (a + b + c) / 2.0
+    return sqrt(s * (s - a) * (s - b) * (s - c))
+   
   }
