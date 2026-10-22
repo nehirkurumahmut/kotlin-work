@@ -12,7 +12,7 @@ fun isValidTriangle(triangle: Triangle): Boolean {
     return (a + b > c) && (a + c > b) && (b + c > a)
   }
 fun triangleArea(triangle: Triangle): Double {
-    if (!isValidTriangle(triangle: Triangle)) {
+    if (!isValidTriangle(triangle) {
         throw IllegalArgumentException("Triangle is invalid!")
     }
     val (a, b, c) = triangle
