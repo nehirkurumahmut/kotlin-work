@@ -12,6 +12,9 @@ fun isValidTriangle(triangle: Triangle): Boolean {
     return (a + b > c) && (a + c > b) && (b + c > a)
   }
 fun triangleArea(triangle: Triangle): Double {
+    if (!isValidTriangle(triangle: Triangle)) {
+        throw IllegalArgumentException("Triangle is invalid!")
+    }
     val (a, b, c) = triangle
     val s = (a + b + c) / 2.0
     return sqrt(s * (s - a) * (s - b) * (s - c))
