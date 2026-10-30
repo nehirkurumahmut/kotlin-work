@@ -56,6 +56,7 @@ class ToDoList() {
         } else {
               items.filter { it.status == status }
     } 
+    }
 
     fun getItemsDueOn(date: LocalDate): List<ToDoItem> {
         // Write code here to return a list of items
