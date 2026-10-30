@@ -15,7 +15,7 @@ class Triangle ( val sideA: Double, val sideB: Double, val sideC: Double) {
         get() = perimeter / 2
     val area: Double
         get() = {
-            val s = Semiperimeter
+            val s = semiPerimeter
             return sqrt(s * (s - sideA) * (s - sideB) * (s - sideC))
    
   }
@@ -24,7 +24,6 @@ class Triangle ( val sideA: Double, val sideB: Double, val sideC: Double) {
 // Add isValidTriangle() and triangleArea() functions here
 
 fun isValidTriangle(val sideA: Double, val sideB: Double, val sideC: Double): Boolean {
-    val (a, b, c) = triangle
-    return (a + b > c) && (a + c > b) && (b + c > a)
+    return (SideA + SideB > SideC) && (SideA + SideC > SideB) && (SideB + SideC > SideA)
   }
   }
