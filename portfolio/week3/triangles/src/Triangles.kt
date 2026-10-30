@@ -6,9 +6,10 @@ import kotlin.math.sqrt
 
 class Triangle ( val sideA: Double, val sideB: Double, val sideC: Double) {
     init {
-       if (!isValidTriangle(sideA, sideB, sideC)) {
-        throw IllegalArgumentException("Triangle is invalid!")
-    } }
+        if (!isValidTriangle(sideA, sideB, sideC)) {
+            throw IllegalArgumentException("Triangle is invalid!")
+    } 
+    }
     val perimeter: Double
         get() = sideA + sideB + sideC
     val semiPerimeter: Double
