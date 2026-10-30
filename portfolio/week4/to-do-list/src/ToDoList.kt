@@ -1,5 +1,8 @@
 // COMP2850 Portfolio: Week 4
 // ToDoList class
+// Student Name: Nehir Kurumahmut
+// Student ID: 201984143
+
 
 import kotlinx.datetime.LocalDate
 import kotlin.io.path.Path
@@ -41,18 +44,21 @@ class ToDoList() {
     fun deleteDone(): Boolean {
         // Write code here to remove items with status of Done
         // Return true if any were removed, false if none were removed
-        return false
+        return items.remove { it.status == ItemStatus.Done }
     }
 
     fun getItems(status: ItemStatus? = null): List<ToDoItem> {
         // Write code here to return a list of items with the matching
         // status, or a list of all items if status argument is null
-        return emptyList()
+        return if (status == null) {
+        items.toDoList()
+        } else {
+              items.filter { it.status == status }
     }
 
     fun getItemsDueOn(date: LocalDate): List<ToDoItem> {
         // Write code here to return a list of items
         // that are due on the specified date
-        return emptyList()
+        return items.filter { it.dueDate == date }
     }
 }
