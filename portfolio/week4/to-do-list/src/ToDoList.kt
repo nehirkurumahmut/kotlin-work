@@ -16,7 +16,7 @@ class ToDoList() {
     val notStarted get() = items.count { it.status == ItemStatus.NotStarted }   // compute no. of items with NotStarted status
     val inProgress get() = items.count {it.status == ItemStatus.InProgress }   // compute no. of items with InProgress status
     val done get() = items.count {it.status == ItemStatus.Done }         // compute no. of items with Done status
-    val overdue get() = items.count { it.isOverdue() }      // compute no. of overdue items
+    val overdue get() = items.count { it.isOverdue }      // compute no. of overdue items
 
     constructor(filename: String): this() {
         load(filename)
