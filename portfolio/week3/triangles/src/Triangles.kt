@@ -19,11 +19,11 @@ class Triangle ( val sideA: Double, val sideB: Double, val sideC: Double) {
             return sqrt(s * (s - sideA) * (s - sideB) * (s - sideC))
    
   }
- override fun toString(): String = "Triangle($sideA, $sideB, $sideC)"
+   override fun toString(): String = "Triangle($sideA, $sideB, $sideC)"
             
 // Add isValidTriangle() and triangleArea() functions here
 
-fun isValidTriangle(sideB: Double, sideB: Double, sideC: Double): Boolean {
-    return (SideA + SideB > SideC) && (SideA + SideC > SideB) && (SideB + SideC > SideA)
+fun isValidTriangle(sideA: Double, sideB: Double, sideC: Double): Boolean {
+    return (sideA + sideB > sideC) && (sideA + sideC > sideB) && (sideB + sideC > sideA)
   }
-  }
+  
