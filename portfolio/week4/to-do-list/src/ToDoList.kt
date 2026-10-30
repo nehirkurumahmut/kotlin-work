@@ -13,7 +13,7 @@ class ToDoList() {
     val notStarted get() = items.count { it.status == ItemStatus.NotStarted }   // compute no. of items with NotStarted status
     val inProgress get() = items.count {it.status == ItemStatus.InProgress }   // compute no. of items with InProgress status
     val done get() = items.count {it.status == ItemStatus.Done }         // compute no. of items with Done status
-    val overdue get() = items.count {it.status == ItemStatus.Overdue ]      // compute no. of overdue items
+    val overdue get() = items.count {it.status == ItemStatus.Overdue }      // compute no. of overdue items
 
     constructor(filename: String): this() {
         load(filename)
@@ -22,6 +22,10 @@ class ToDoList() {
     fun load(filename: String) {
         // Implement code to read To Do list from a file here
         // See data/to-do.csv for an example of the format
+        Path(filename).forEachLine { line ->
+            if (line.isNotBlank()) {
+                items.add(ToDoItem(line))
+            } } 
     }
 
     fun save(filename: String) {
