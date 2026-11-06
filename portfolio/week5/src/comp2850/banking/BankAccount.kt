@@ -26,11 +26,12 @@ abstract class BankAccount(val holder: String) {
 // IllegalArgumentException on any attempt to set an overdraft outside the range 0 to 100.
 // The default value of overdraft should be 0.
 class StudentAccount(holder: String) : BankAccount(holder) {
-    var overdraft = Int = 0
+    var overdraft: Int = 0
         set(value) {
             if(value !in 0..100) {
                 throw IllegalArgumentException("Overdraft must be between 0 and 100")
-        }   field = value 
+        }   
+            field = value 
         }
         // withdraw() should throw IllegalArgumentException if the specified amount is not greater
 // than 0, with the exact message
@@ -43,7 +44,7 @@ class StudentAccount(holder: String) : BankAccount(holder) {
         }
     // withdrawalsAllowed() should return true if further withdrawals are possible, false otherwise. = boolean
     fun withdrawalsAllowed(): Boolean {
-        return balance = -overdraft
+        return balance > -overdraft
     }
     // toString() should return a string representation that includes holder, balance and overdraft.
 It should have this format:
