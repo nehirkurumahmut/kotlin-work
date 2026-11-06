@@ -26,19 +26,21 @@ abstract class BankAccount(val holder: String) {
 class StudentAccount(holder: String) : BankAccount(holder) {
     var overdraft: Int = 0
         set(value) {
-            if(value !in 0..100) {
+            if (value !in 0..100) {
                 throw IllegalArgumentException("Overdraft must be between 0 and 100")
         }   
             field = value 
         }
         
     override fun withdraw(amount: Int) {
-        if (amount <= 0){
+        if (amount <= 0) {
             throw IllegalArgumentException("Withdrawal amount must be greater than 0") 
-    }   if (balance - amount < -overdraft) {
+    }   
+        if (balance - amount < -overdraft) {
             throw IllegalArgumentException("Insufficient funds for withdrawal")
-    }   balance -= amount
-        }
+    }   
+        balance -= amount
+     }
     // withdrawalsAllowed() should return true if further withdrawals are possible, false otherwise. = boolean
     fun withdrawalsAllowed(): Boolean {
         return balance > -overdraft
