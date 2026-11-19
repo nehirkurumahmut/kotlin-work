@@ -68,6 +68,9 @@ class VigenereCipher:
         
         shift_list = []
         for i in range(plaintext_length):
+            key_character = self.keyword[i % len(self.keyword)]
+            shift = ord(key_character) - self.offset
+            shift_list.append(shift)
            
         return shift_list
 
