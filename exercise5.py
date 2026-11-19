@@ -149,12 +149,12 @@ class VigenereCipher:
         for char in ciphertext:
             if char.isalpha():
                 remove += char
-                shifts = self.__generate_shift_list(len(remove))
+        shifts = self.__generate_shift_list(len(remove))
 
         for i in range(len(remove)):
             letter = ciphertext[i]
-            shift = shifts[i]
-            decrypt_letters = self.__shift_letter to decrypt_letters(letter, shift, False)
+            shift = remove[i]
+            decrypt_letters = self.__shift_letter(letter, shift, False)
             plaintext += decrypt_letters
 
         
