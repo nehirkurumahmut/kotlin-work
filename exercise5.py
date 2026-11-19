@@ -135,6 +135,21 @@ class VigenereCipher:
             The plaintext string.
         """
         plaintext = ''
+  
+        ciphertext = ciphertext.upper()
+        remove = ''
+        for char in ciphertext:
+            if char.isalpha():
+                remove += char
+                shifts = self.__generate_shift_list(len(remove))
+
+        for i in range(len(ciphertext)):
+            letter = ciphertext[i]
+            shift = shifts[i]
+            decrypt = self.__shift_letter to decrypt(letter, shift, False)
+            plaintext += decrypt
+
+        
         return plaintext
 
 
