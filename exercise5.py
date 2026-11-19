@@ -65,7 +65,10 @@ class VigenereCipher:
             A list of shifts (integers).
         """
         
+        
         shift_list = []
+        for i in range(plaintext_length):
+           
         return shift_list
 
     def encrypt(self, plaintext: str):
@@ -89,7 +92,22 @@ class VigenereCipher:
         str
             The ciphertext string.
         """
+        plaintext = plaintext.upper()
+        removed = ''
+        for char in plaintext:
+            if char.isalpha():
+                removed += char
+
+        shift_list = self.__generate_shift_list(len(removed))
+        
         ciphertext = ''
+        for i in range(len(removed)):
+            letter = removed[i]
+            shift = shift_lift[i]
+            encrypt_letter = self.__shift_letter(letter, shift, True)
+            ciphertext = ciphertext + encrypt_letter
+            
+            
         return ciphertext
 
     def decrypt(self, ciphertext: str):
