@@ -103,7 +103,7 @@ class VigenereCipher:
         ciphertext = ''
         for i in range(len(removed)):
             letter = removed[i]
-            shift = shift_lift[i]
+            shift = shift_list[i]
             encrypt_letter = self.__shift_letter(letter, shift, True)
             ciphertext = ciphertext + encrypt_letter
             
@@ -143,11 +143,11 @@ class VigenereCipher:
                 remove += char
                 shifts = self.__generate_shift_list(len(remove))
 
-        for i in range(len(ciphertext)):
+        for i in range(len(remove)):
             letter = ciphertext[i]
             shift = shifts[i]
-            decrypt = self.__shift_letter to decrypt(letter, shift, False)
-            plaintext += decrypt
+            decrypt_letters = self.__shift_letter to decrypt_letters(letter, shift, False)
+            plaintext += decrypt_letters
 
         
         return plaintext
