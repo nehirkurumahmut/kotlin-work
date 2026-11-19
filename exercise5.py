@@ -152,8 +152,8 @@ class VigenereCipher:
         shifts = self.__generate_shift_list(len(remove))
 
         for i in range(len(remove)):
-            letter = ciphertext[i]
-            shift = remove[i]
+            letter = remove[i]
+            shift = shifts[i]
             decrypt_letters = self.__shift_letter(letter, shift, False)
             plaintext += decrypt_letters
 
