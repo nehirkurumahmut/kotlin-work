@@ -13,6 +13,9 @@ What you need to do:
      exact filename, with a header row and columns named exactly
      eps, error1, error2, error3.
 """
+# Student Name: Nehir Kurumahmut
+# Student ID:201984143
+
 
 import numpy as np
 
@@ -46,13 +49,13 @@ def gram_schmidt_qr(A):
 
     Q = np.empty_like(A)
     R = np.zeros_like(A)
-  for j in range(n):
-    v =  A[:,j].copy()
+    for j in range(n):
+        v =  A[:,j].copy()
     for i in range(j):
-      R[i,j] = np.dot(Q[:,i],A[:,j])
-      v = v - R[i,j] * Q[:i]
-     R[i,j] = np.linalg.norm(v)
-     Q[:,j] = v / R[j,j]
+        R[i,j] = np.dot(Q[:,i],A[:,j])
+        v = v - R[i,j] * Q[:i]
+    R[i,j] = np.linalg.norm(v)
+    Q[:,j] = v / R[j,j]
 
     # TODO: fill in Q and R
 
@@ -80,7 +83,7 @@ def generate_table():
       A = A_func(eps)
       Q, R = gram_schmidt_qr(A)
       error1 = np.linalg.norm(A - Q @ R)
-      error2 = np.linalg.norm( Q.T @ Q - np.eye(A.shape[0]), np.eye(2))
+      error2 = np.linalg.norm( Q.T @ Q - np.eye(A.shape[0]))
       error3 = np.linalg.norm(np.tril(R, -1))
       rows.append(
         {"eps": eps, "error1": error1, "error2": error2, "error3": error3}
