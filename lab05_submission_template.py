@@ -50,12 +50,12 @@ def gram_schmidt_qr(A):
     Q = np.empty_like(A)
     R = np.zeros_like(A)
     for j in range(n):
-        v =  A[:,j].copy()
-    for i in range(j):
-        R[i,j] = np.dot(Q[:,i],A[:,j])
-        v = v - R[i,j] * Q[:i]
-    R[i,j] = np.linalg.norm(v)
-    Q[:,j] = v / R[j,j]
+        v =  A[:, j].copy()
+        for i in range(j):
+            R[i, j] = np.dot(Q[:, i],A[:, j])
+            v = v - R[i,j] * Q[:, i]
+    R[i, j] = np.linalg.norm(v)
+    Q[:, j] = v / R[j, j]
 
     # TODO: fill in Q and R
 
