@@ -50,7 +50,7 @@ def gram_schmidt_qr(A):
     v =  A[:,j].copy()
     for i in range(j):
       R[i,j] = np.dot(Q[:,i],A[:,j])
-      v = R[i,j] * Q[:i]
+      v = v - R[i,j] * Q[:i]
      R[i,j] = np.linalg.norm(v)
      Q[:,j] = v / R[j,j]
 
@@ -79,9 +79,9 @@ def generate_table():
       eps = (10.0 ** (-j))
       A = A_func(eps)
       Q, R = gram_schmidt_qr(A)
-      error1 = np.linalg.norm(A - Q @ R, np.eye(2))
-      error2 = np.linalg.norm( Q @ R - np.eye(A.shape[0]), np.eye(2))
-      error3 = np.linalg.norm(np.tril[R, -1))
+      error1 = np.linalg.norm(A - Q @ R)
+      error2 = np.linalg.norm( Q.T @ Q - np.eye(A.shape[0]), np.eye(2))
+      error3 = np.linalg.norm(np.tril(R, -1))
       rows.append(
         {"eps": eps, "error1": error1, "error2": error2, "error3": error3}
        )
